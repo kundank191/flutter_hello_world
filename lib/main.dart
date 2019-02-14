@@ -1,46 +1,32 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(SampleApp());
-
-class SampleApp extends StatelessWidget {
+class HelloRectangle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Learning about states',
-      theme: ThemeData(primarySwatch: Colors.teal),
-      home: SampleAppPage(),
+    return Center(
+      child: Container(
+        color: Colors.greenAccent,
+        height: 400.0,
+        width: 300.0,
+        child: Center(
+          child: Text(
+            'Hello',
+            style: TextStyle(fontSize: 40.0),),
+        ),
+      ),
     );
   }
 }
 
-class SampleAppPage extends StatefulWidget {
-  SampleAppPage ({Key key}) : super(key: key);
-
-  @override
-  _SampleAppPageState createState() => _SampleAppPageState();
-}
-
-class _SampleAppPageState extends State<SampleAppPage> {
-
-  String textToShow = ' I like flutter';
-
-  void _updateText() {
-    setState(() {
-          textToShow = 'new text';
-        });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Hello World'),),
-      body: Center(child: Text(textToShow)),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _updateText,
-        tooltip: 'Updated Text',
-        child: Icon(Icons.update),
+void main() {
+  print('Hello!');
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text('Hello Rectangle'),
       ),
-      );
-  }
-
+      body: HelloRectangle(),
+    ),
+  ));
 }
